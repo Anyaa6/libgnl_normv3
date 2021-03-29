@@ -6,7 +6,7 @@
 /*   By: abonnel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 10:02:28 by abonnel           #+#    #+#             */
-/*   Updated: 2021/03/29 14:19:15 by abonnel          ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 18:04:29 by abonnel          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list			*res;
 
-	res = NULL;
-	if (!(ft_malloc((void *)res, sizeof(t_list))))
+	res = (t_list *)malloc(sizeof(t_list));
+	if (!(res))
 		return (NULL);
 	res->content = content;
 	res->next = NULL;

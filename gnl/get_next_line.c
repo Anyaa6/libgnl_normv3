@@ -6,7 +6,7 @@
 /*   By: abonnel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:59:12 by abonnel           #+#    #+#             */
-/*   Updated: 2021/03/29 14:29:32 by abonnel          ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 16:40:12 by abonnel          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,24 @@ void	free_set_null(char **ptr)
 }
 
 /*
-** GNL return value
-** 1 : a line was read
-** 0 : EOF
-** -1 : an error occured
+ ** GNL return value
+ ** 1 : a line was read
+ ** 0 : EOF
+ ** -1 : an error occured
 */
+
+int	end_or_error(int nb_bytes, char **line, char **str)
+{
+	if (nb_bytes <= 0)
+	{
+		if (nb_bytes == 0)
+			*line = ft_strdup(*str);
+		free_set_null(&(*str));
+		return (nb_bytes);
+	}
+	else
+		return (1);
+}
 
 int	get_next_line(int fd, char **line)
 {
@@ -53,18 +66,15 @@ int	get_next_line(int fd, char **line)
 		return (-1);
 	if (!s[fd])
 		s[fd] = ft_calloc(2, sizeof(char));
-	while ((n_pos = n_in(s[fd])) == -1)
+	n_pos = n_in(s[fd]);
+	while (n_pos == -1)
 	{
 		nb_bytes = read(fd, buf, BUFFER_SIZE);
-		if (nb_bytes <= 0)
-		{
-			if (nb_bytes == 0)
-				*line = ft_strdup(s[fd]);
-			free_set_null(&(s[fd]));
+		if (end_or_error(nb_bytes, line, &(s[fd])) <= 0)
 			return (nb_bytes);
-		}
 		buf[nb_bytes] = '\0';
 		s[fd] = strjoin_free1(s[fd], buf);
+		n_pos = n_in(s[fd]);
 	}
 	*line = substr_gnl(s[fd], 0, n_pos);
 	s[fd] = substr_gnl(s[fd], n_pos + 1, ft_strlen(s[fd]) - (n_pos + 1));

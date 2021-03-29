@@ -6,7 +6,7 @@
 /*   By: abonnel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:58:51 by abonnel           #+#    #+#             */
-/*   Updated: 2021/03/29 14:31:51 by abonnel          ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 17:47:26 by abonnel          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,10 @@ char	*strjoin_free1(char *s1, char *s2)
 
 	if (!s2)
 		return (0);
-	if (!s1)
-	{
-		r = ft_strdup(s2);
-		return (r);
-	}
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	if (!(r = (char *)malloc((s1_len + s2_len + 1) * sizeof(char))))
+	r = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
+	if (!r)
 		return (0);
 	i = -1;
 	while (++i < s1_len)

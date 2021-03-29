@@ -6,13 +6,13 @@
 /*   By: abonnel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:05:45 by abonnel           #+#    #+#             */
-/*   Updated: 2021/01/15 14:51:03 by abonnel          ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 17:48:40 by abonnel          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFFER_SIZE 1024
+# define BUFFER_SIZE 2048
 
 # include <stdlib.h>
 # include <unistd.h>
