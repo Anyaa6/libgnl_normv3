@@ -6,7 +6,7 @@
 #    By: abonnel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/29 10:45:55 by abonnel           #+#    #+#              #
-#    Updated: 2021/03/29 14:11:22 by abonnel          ###   ########lyon.fr    #
+#    Updated: 2021/05/06 13:17:44 by abonnel          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS	= ft_isalpha.c ft_toupper.c ft_tolower.c ft_isdigit.c ft_isalnum.c \
 		  hexa_len.c ft_itoabase.c ft_malloc.c\
 		  ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 		  ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-		  ft_lstmap.c
+		  ft_lstmap.c ft_split_free.c
 
 OBJS	= $(SRCS:.c=.o)
 

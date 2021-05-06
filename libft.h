@@ -6,7 +6,7 @@
 /*   By: abonnel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:19:21 by abonnel           #+#    #+#             */
-/*   Updated: 2021/03/29 14:36:18 by abonnel          ###   ########lyon.fr   */
+/*   Updated: 2021/05/06 13:18:03 by abonnel          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 int				hexa_len(unsigned long long nb);
 char			*ft_itoabase(unsigned long long nb, char *base);
 int				ft_malloc(void *ptr, int size);
+void			free_split(char **split);
 
 #endif
